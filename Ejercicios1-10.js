@@ -196,7 +196,7 @@ imprimirPeliculas = (peli) => {
   }
 };
 
-// 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+// 26
 arrPromedio = (array) => {
   return console.info(
     array.reduce((total, num, index, array) => {
@@ -214,8 +214,7 @@ arrPromedio = (array) => {
   // });
   // return suma / array.length;
 };
-arrPromedio([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
-// 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+// 25
 eliminarDuplicados = (array) => {
   arr = [];
   for (let i = 0; i < array.length; i++) {
@@ -232,9 +231,7 @@ eliminarDuplicadosDos = (array) => {
   });
 };
 
-// 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y
-// el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
-
+// 24)
 ordenarArreglos = (array) => {
   return console.info({
     array,
@@ -246,28 +243,24 @@ ordenarArreglos = (array) => {
   });
 };
 
-// 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares,
-// pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+// 23)
 arrayParEImpar = (array) => {
   arrayPar = array.filter((a) => a % 2 === 0);
   arrayImpar = array.filter((a) => a % 2 === 1);
   return { 'los impares son:': arrayImpar, 'los pares son': arrayPar };
 };
-// console.log(arrayParEImpar([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 
-// 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
-// console.time('numeroAltoBajoMath');
+// 22)
 numeroAltoBajo = (array) => {
   return `Max: ${Math.max(...array)}, Min: ${Math.min(...array)}`;
 };
-// console.timeEnd('numeroAltoBajoMath');
-// console.time('numeroAltoBajoconSort');
+
 numeroAltoBajoDos = (array) => {
   arr = array.sort();
   return `Max: ${arr[0]}, Min: ${arr[-1]}`;
 };
-// console.timeEnd('numeroAltoBajoconSort');
-// 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+
+// 21
 arrayCuadrado = (arrayo) => arrayo.map((a) => a * a);
 
 //20
@@ -276,7 +269,6 @@ function mailValido(mail) {
     mail
   );
 }
-// console.log(mailValido('minob_reh_d12@outook.do'));
 // 19
 function nombreValido(nombre) {
   return /^[A-Za-zñÑ\s]+$/gi.test(nombre)
@@ -344,7 +336,7 @@ random = (max, min) => Math.floor(Math.random() * (max - min) + min);
 
 // 8
 function eliminarCaracteres(texto, caracteres) {
-  const regex = new RegExp(`${caracteres}`, 'ig'); //"ig" determina que no se detenga en la primer coincidencia (g) e ignore mayusuclas (i)
+  const regex = new RegExp(`${caracteres}`, 'ig');
   let tt = texto.split(' ');
   let ty = '';
   for (let word of tt) {
