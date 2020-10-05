@@ -1,2 +1,2 @@
-node_modules/
-Calculadora/
+node_modules/*
+Calculadora/*
