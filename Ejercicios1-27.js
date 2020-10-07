@@ -58,7 +58,7 @@ director, año de estreno, país o países de origen, géneros y calificación e
   - Crea un método que devuelva toda la ficha técnica de la película.
   - Apartir de un arreglo con la información de 3 películas genera 3 
     instancias de la clase de forma automatizada e imprime la ficha técnica 
-    de cada película.
+    de cada película. 1332 
 
 * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,
 Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, 
@@ -68,7 +68,7 @@ Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
 // 27
 class Pelicula {
-  constructor(id, title, director, year, country, genre, score) {
+  constructor({ id, title, director, year, country, genre, score }) {
     (this.id = id),
       (this.title = title),
       (this.director = director),
@@ -76,125 +76,166 @@ class Pelicula {
       (this.country = country),
       (this.genre = genre),
       (this.score = score);
+
+    this.validarAnio(year);
+    this.validarDirector(director);
+    this.validarGenero(genre);
+    this.validarId(id);
+    this.validarPais(country);
+    this.validarPuntaje(score);
+    this.validarTitulo(title);
   }
 
-  genres = [
-    'Action',
-    'Adult',
-    'Adventure',
-    'Animation',
-    'Biography',
-    'Comedy',
-    'Crime',
-    'Documentary',
-    'Drama',
-    'Family',
-    'Fantasy',
-    'Film Noir',
-    'Game-Show',
-    'History',
-    'Horror',
-    'Musical',
-    'Music',
-    'Mystery',
-    'News',
-    'Reality-TV',
-    'Romance',
-    'Sci-Fi',
-    'Short',
-    'Sport',
-    'Talk-Show',
-    'Thriller',
-    'War',
-    'Western',
-  ];
-  static validacion(peli) {
-    if (!peli[0].length === 9) {
-      return console.log(
-        'El id debe es obligatorio y debe tener el formato "AA1234567".'
-      );
-    } else if (peli[1].length > 100) {
-      return console.log('El titulo no debe tener mas de 100 caracteres.');
-    } else if (peli[2].length > 50) {
-      return console.log(
-        'El nombre del director no debe tener mas de 100 caracteres.'
-      );
-    } else if (!/[0-9]{4}/gi.test(peli[3])) {
-      return console.log('El año debe ser un numero de 4 digitos.');
-    } else if (!(peli[4] instanceof Array)) {
-      return console.log('El pais debe ser pasado en un array. ie ["País"]');
-    }
-    // else if (!(peli[5] instanceof Array)) {
-    //   return console.log(
-    //     'Los generos deben ser pasados en un array. ie ["País"]'
-    //   );}
-    // else if (peli[7].length > 10 || !/[1]*[0-9]{1}\.?[0-9]*/i.test(peli[6])) {
-    //   return console.log(
-    //     'El puntaje debe ser un numero entre 0 y 10, puede tener un decimal.'
-    //   );
-    // }
-    else return true;
+  static get genres() {
+    return [
+      'Action',
+      'Adult',
+      'Adventure',
+      'Animation',
+      'Biography',
+      'Comedy',
+      'Crime',
+      'Documentary',
+      'Drama',
+      'Family',
+      'Fantasy',
+      'Film Noir',
+      'Game-Show',
+      'History',
+      'Horror',
+      'Musical',
+      'Music',
+      'Mystery',
+      'News',
+      'Reality-TV',
+      'Romance',
+      'Sci-Fi',
+      'Short',
+      'Sport',
+      'Talk-Show',
+      'Thriller',
+      'War',
+      'Western',
+    ];
   }
-  static metodosAceptados = () => `Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,
-Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, 
-Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.`;
+  validarStrings(cadena, valor) {
+    if (!valor) console.warn(`${cadena} "${valor}" no es valido`);
+    if (typeof valor !== 'string') {
+      return console.warn('El valor no es una cadena de texto');
+    }
+    return true;
+  }
+  validarId(id) {
+    if (this.validarStrings('IMDB id', id)) {
+      if (!/^([a-z]){2}([0-9]){7}$/i.test(id)) {
+        return console.error(`El formato"${id}" no es valido`);
+      }
+    }
+  }
+  validarTitulo(title) {
+    if (this.validarStrings('Titulo', title)) {
+      if (!(title.length < 100)) {
+        return console.error(`El titulo es demasiado largo`);
+      }
+    }
+  }
+  validarDirector(director) {
+    if (this.validarStrings('Director', director)) {
+      if (!(director.length <= 50)) {
+        return console.error('El nombre del director es muy largo');
+      }
+    }
+  }
+  validarAnio(year) {
+    if (!/^[0-9]{4}$/i.test(year) || year === undefined) {
+      return console.error('El año no es valido.');
+    }
+  }
+  validarPais(country) {
+    if (!country instanceof Array || country === undefined) {
+      return console.error('El pais debe ser ingresado en forma de arreglo');
+    }
+  }
+  validarGenero(genre) {
+    if (!(genre instanceof Array) || genre === undefined) {
+      return console.error('El genero es invalido');
+    }
+    for (let ele of genre) {
+      if (!Pelicula.genres.includes(ele)) {
+        return console.error(
+          `el genero "${ele}" no esta dentro de los generos aceptados.`
+        );
+      }
+    }
+  }
+  validarPuntaje(score) {
+    if (score > 10 || !/^[0-9]*([0-9]){1}\.([0-9]){1}$/i.test(score)) {
+      return console.warn(
+        'El puntaje debe ser un numero entre 0 y 10, debe tener un decimal.'
+      );
+    }
+  }
+
+  static generosAceptados = () => console.log(this.genres);
 
   fichaTecnica = () => {
-    console.log(
-      this.id,
-      this.title,
-      this.director,
-      this.year,
-      this.country,
-      this.genre,
-      this.score
-    );
+    console.info(`
+      Ficha Tecnica: 
+      IMBD id: ${this.id},
+      Titulo: ${this.title},
+      Director: ${this.director},
+      Año: ${this.year},
+      Pais/es: ${this.country},
+      Genero/s: ${this.genre},
+      Puntaje: ${this.score}`);
   };
 }
 let peliculas = [
-  [
-    'AA1234567',
-    'Tiburon',
-    'Harry Potter',
-    1999,
-    ['Argentina'],
-    ['Action'],
-    8.9,
-  ],
-  [
-    'ZZ3923485',
-    'Lasaña',
-    'Federico Cañete',
-    219289,
-    ['Perú'],
-    ['Adult'],
-    112231,
-  ],
-  [
-    'CC1956805',
-    'Aliens',
-    'Chiche Cañete',
-    1992332,
-    ['Junin de los Andes'],
-    ['Sci-Fi'],
-    10,
-  ],
+  {
+    id: 'AA1234567',
+    title: 'Tiburon',
+    director: 'Harry Potter',
+    year: 1912,
+    country: ['Argentina', 'Canada'],
+    genre: ['Action', 'Drama'],
+    score: 8.9,
+  },
+  {
+    id: 'AA1234567',
+    title:
+      'Tiqweq2eqewqwqwe123141234123412341234123412341234eqwbeqwbeqwebqwbeqwbeqwbqbwbqbqwebqwbeburon',
+    director: 'Harryqwbeqeqwebqwbeqwbeq Potter',
+    year: 1912,
+    country: ['sdwdsd'],
+    genre: ['Acddwadstion'],
+    score: 9.9,
+  },
+  {
+    id: 'rr1332275',
+    title: 'Tiburon',
+    director: 'Harry Potter',
+    year: 1912,
+    country: ['Argentina'],
+    genre: ['Action'],
+    score: 8.9,
+  },
 ];
-let peliOne = [
-  'AA1234567',
-  'Tiburon',
-  'Harry Potter',
-  1912399,
-  ['Argentina'],
-  ['Action'],
-  8.9,
-];
+let peliOne = {
+  id: 'AA1234567',
+  title: 'Tiburon',
+  director: 'Harry Potter',
+  year: 1912,
+  country: ['Argentina'],
+  genre: ['Action'],
+  score: 8.9,
+};
 imprimirPeliculas = (peli) => {
-  let papapu = new Pelicula(...peli);
-  if (Pelicula.validacion(Object.values(papapu))) {
-    papapu.fichaTecnica();
+  for (let ele of peli) {
+    ele = new Pelicula(ele);
+    ele.fichaTecnica();
   }
 };
+// peliculas.forEach((ele) => new Pelicula(ele).fichaTecnica());
 
 // 26
 arrPromedio = (array) => {
