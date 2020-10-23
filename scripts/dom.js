@@ -6,7 +6,6 @@
 
 // setTimeout(function () {
 //   document.documentElement.lang = 'en';
-//   document.documentElement.setAttribute('lang', 'es-MX');
 //   let texto = new SpeechSynthesisUtterance('How Are you? ');
 //   speechSynthesis.speak(texto);
 // }, 3000);
@@ -21,3 +20,17 @@ console.log(document.documentElement.lang);
 console.log(document.documentElement.getAttribute('lang'));
 console.log(document.querySelector('.link-dom').href); // ruta completa https://127.0.0.1:5500/dom.html
 console.log(document.querySelector('.link-dom').getAttribute('href')); // ruta especifica dom.html
+document.documentElement.setAttribute('lang', 'es-MX');
+const $linkDOM = document.querySelector('.link-dom');
+
+$linkDOM.setAttribute('target', '_blank');
+$linkDOM.setAttribute('rel', 'noopener');
+$linkDOM.setAttribute('href', 'https://twitch.tv/bleumont');
+$linkDOM.hasAttribute('href'); // boolean
+$linkDOM.removeAttribute('rel');
+
+// Data-Attributes
+
+console.log($linkDOM.getAttribute('data-description'));
+console.log($linkDOM.dataset);
+console.log($linkDOM.dataset.description);
