@@ -1,0 +1,15 @@
+.eventos-flujo div {
+  padding: 4rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.uno {
+  background-color: darkmagenta;
+}
+.dos {
+  background-color: firebrick;
+}
+.tres {
+  background-color: saddlebrown;
+}
