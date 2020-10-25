@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .eventos-flujo div {
   padding: 4rem;
   font-size: 2rem;
@@ -12,4 +18,39 @@
 }
 .tres {
   background-color: saddlebrown;
+}
+
+a {
+  color: darkgrey;
+}
+#menu {
+  background-color: black;
+  height: 3rem;
+  padding: 0;
+  margin: 0;
+}
+
+#menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 2rem;
+  flex-direction: row-reverse;
+}
+.logo {
+  position: absolute;
+  display: flex;
+}
+#menu li {
+  padding-right: 20px;
+}
+
+body {
+  background-color: darkslategray;
+  margin: 32px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
 }

@@ -339,6 +339,20 @@ function contarPalabras(original, termino) {
   }
   return contador;
 }
+// Contar cantidad de veces que aparece una palabra en texto (reduce())
+let palabras = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, earum consequatur unde 
+  sequi nulla eos fuga ipsum dolor explicabo reiciendis quam ratione odio necessitatibus fuga. Animi dolorem 
+  dolorum ab maxime pariatur? Tempore, labore?`;
+
+let palabrasNormalizadas = palabras.toLowerCase().split(' ');
+const cantidadPalabras = palabrasNormalizadas.reduce(
+  (contadorPalabras, palabra) => {
+    contadorPalabras[palabra] = (contadorPalabras[palabra] || 0) + 1;
+    return contadorPalabras;
+  },
+  {}
+);
+console.log(cantidadPalabras);
 
 // 5
 function invertir(cadena) {
