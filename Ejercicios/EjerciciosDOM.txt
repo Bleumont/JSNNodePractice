@@ -1,0 +1,4 @@
+1) Menu de hamburguesa, 5 secciones, una pagina
+2) Reloj digital
+3) Alarma sonora
+4) Atajos del teclado

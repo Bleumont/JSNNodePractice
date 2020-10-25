@@ -78,13 +78,61 @@ document.addEventListener('click', (e) => {
     flujoEventos(e);
   }
 });
-window.addEventListener('load', (e) => {
-  console.log(window.screenY);
-  console.log(window.screenX);
-});
+// window.addEventListener('load', (e) => {
+//   console.log(window.screenY);
+//   console.log(window.screenX);
+// });
 
-document.addEventListener('DOMContentLoaded', (e) => {
-  console.log('Content Load');
-  console.log(window.screenY);
-  console.log(window.screenX);
+// document.addEventListener('DOMContentLoaded', (e) => {
+//   console.log('Content Load');
+//   console.log(window.screenY);
+//   console.log(window.screenX);
+// });
+
+const $btnAbrir = document.getElementById('abrir-ventana'),
+  $btnCerrar = document.getElementById('cerrar-ventana'),
+  $btnImprimir = document.getElementById('imprimir-ventana');
+
+let ventana;
+
+$btnAbrir.addEventListener('click', (e) => {
+  ventana = window.open('dom.html');
 });
+$btnCerrar.addEventListener('click', (e) => {
+  ventana.close();
+});
+$btnImprimir.addEventListener('click', (e) => {
+  print();
+});
+/*
+console.log('******* Objeto URL (location) *******');
+console.log(location);
+console.log(location.origin);
+console.log(location.protocol);
+console.log(location.host);
+console.log(location.hostname);
+console.log(location.port);
+console.log(location.href);
+console.log(location.hash);
+console.log(location.pathname);
+*/
+
+console.log('******* Objeto Historial *******');
+console.log(history);
+console.log(history.length);
+// console.log(history.back(2))
+// history.go(-1)
+// history.back(2)
+
+console.log('******* Objeto Navigator *******');
+console.log(navigator);
+console.log(navigator.connection);
+console.log(navigator.geolocation);
+console.log(navigator.mediaDevices);
+console.log(navigator.mimeTypes);
+console.log(navigator.onLine);
+console.log(navigator.serviceWorker);
+console.log(navigator.storage);
+console.log(navigator.usb);
+console.log(navigator.userAgent);
+console.log();
