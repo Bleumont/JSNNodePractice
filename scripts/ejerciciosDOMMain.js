@@ -1,15 +1,9 @@
-$hamburguerMenu = document.querySelector('#haha');
+import hamburguerMenu from './hamburguerMenu.js';
+import { alarma, reloj } from './sonido.js';
 
-$hamburguerMenu.style.display = 'none';
-document.addEventListener('click', (e) => {
-  if (
-    e.target.matches('.hamburger') &&
-    $hamburguerMenu.style.display === 'none'
-  ) {
-    $hamburguerMenu.style.display = 'initial';
-
-    console.log('Clicked');
-  } else {
-    $hamburguerMenu.style.display = 'none';
-  }
+const d = document;
+d.addEventListener('DOMContentLoaded', (e) => {
+  hamburguerMenu('#panel-btn', '.panel', '.menu a');
+  alarma('.alarmInit', '.alarmStop');
+  reloj('#reloj', '#clockStart', '#clockStop');
 });

@@ -1,71 +1,131 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* *****RESET CSS******/
+:root {
+  --main-font: sans-serif;
+  --font-size: 16px;
+  --main-color: #f7df1e;
+  --second-color: #222;
+  --main-modal-color: rgba(247, 222, 30, 0.85);
+  --second-modal-color: rgba(34, 34, 34, 0.85);
+  --container-width: 1200px;
 }
+/*RESETEO BASICO PARA EL HTML*/
+html {
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  scroll-behavior: smooth; /*NAVEGACIÓN*/
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/*MARGEN DEL BODY*/
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+.header {
+  position: sticky;
+  top: 0;
+  padding: 0rem;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+/****************** ESTILOS **********************/
 #title {
   text-align: center;
   background-color: deepskyblue;
-  margin: 0;
+  margin: auto;
 }
-
 body {
   background-color: #24292e;
   margin: 0;
   padding: 0;
 }
-
-section {
+.section {
+  padding: 2rem;
+  padding-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--container-width);
+  min-height: 100vh;
   text-align: center;
-  height: 150px;
+  color: aqua;
 }
-
-.hamburger-menu {
+.panel {
   background-color: deepskyblue;
-  border-radius: 50%;
-  display: grid;
-  font-size: 2rem;
-  text-align: center;
+  /* display: flex; */
   position: fixed;
-  right: 1%;
-  bottom: 1%;
+  width: 100%;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 998;
+  transition: transform 0.3s ease; /* opacity 0.5s ease*/
+  transform: translate(0, -100%);
 }
-.hamburguer {
-  border-radius: 40%;
-  background-color: red;
+.active {
+  transform: translate(0, 0%);
+  /* opacity: 1 */
 }
-.hamburger-menu ul {
+.menu {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+#panel-btn {
+  position: fixed;
+  right: 1vw;
+  bottom: 1vh;
+  border-radius: 100%;
+  height: 3rem;
+  width: 3rem;
+  background-color: darkmagenta;
+  font-size: 1.5rem;
+  z-index: 999;
+}
+.panel ul {
   list-style: none;
 }
-.hamburger-menu a {
+.menu a {
   text-decoration: none;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  transition: all 0.5s ease;
+  padding: 2rem;
+  font-size: 1.5rem;
+  width: inherit;
 }
-#haha {
-  background-color: deepskyblue;
-  display: none;
-  position: fixed;
-  width: 30%;
-  height: 90%;
-  left: 0%;
-  top: 10%;
+.menu a:hover {
+  background-color: darkmagenta;
+  font-weight: bold;
+  color: aqua;
 }
-.hamburger-menu:hover {
+#panel-btn:hover {
   animation-name: btnRoll;
   animation-duration: 300ms;
   animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
-
 ul li {
   align-items: center;
   text-align: center;
 }
-
 @keyframes btnRoll {
   0% {
-    border-radius: 50%;
+    border-radius: 100%;
   }
   100% {
     border-radius: 0%;
   }
+}
+.reloj {
+  height: 2rem;
 }
