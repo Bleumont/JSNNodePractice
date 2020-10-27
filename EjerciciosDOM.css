@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+#title {
+  text-align: center;
+  background-color: deepskyblue;
+  margin: 0;
+}
+
+body {
+  background-color: #24292e;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  text-align: center;
+  height: 150px;
+}
+
+.hamburger-menu {
+  background-color: deepskyblue;
+  border-radius: 50%;
+  display: grid;
+  font-size: 2rem;
+  text-align: center;
+  position: fixed;
+  right: 1%;
+  bottom: 1%;
+}
+.hamburguer {
+  border-radius: 40%;
+  background-color: red;
+}
+.hamburger-menu ul {
+  list-style: none;
+}
+.hamburger-menu a {
+  text-decoration: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#haha {
+  background-color: deepskyblue;
+  display: none;
+  position: fixed;
+  width: 30%;
+  height: 90%;
+  left: 0%;
+  top: 10%;
+}
+.hamburger-menu:hover {
+  animation-name: btnRoll;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+}
+
+ul li {
+  align-items: center;
+  text-align: center;
+}
+
+@keyframes btnRoll {
+  0% {
+    border-radius: 50%;
+  }
+  100% {
+    border-radius: 0%;
+  }
+}
