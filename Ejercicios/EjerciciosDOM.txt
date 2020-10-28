@@ -1,5 +1,5 @@
 1) Menu de hamburguesa, 5 secciones, una pagina
 2) Reloj digital y alarma sonora
-4) Eventos del teclado: 
-Circulo en una caja que se mueve con las flechas
-com shorcuts, ShA=alert, ShP=prompt, ShC=confirm
+4) Eventos del teclado
+5) Cuenta regresiva
+6) Boton que lleve al top
