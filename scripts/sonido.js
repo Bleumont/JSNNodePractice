@@ -1,13 +1,17 @@
 const d = document;
 
-export function alarma(btnPlay, btnPause) {
-  const $audio = d.getElementById('audio');
+export function alarma(sound, btnPlay, btnPause) {
+  const $audio = d.createElement('audio');
+  $audio.src = sound;
   d.addEventListener('click', (e) => {
     if (e.target.matches(btnPlay)) {
       $audio.play();
+      e.target.disabled = true;
     }
     if (e.target.matches(btnPause)) {
       $audio.pause();
+      $audio.currentTime = 0;
+      d.querySelector(btnPlay).disabled = false;
     }
   });
 }

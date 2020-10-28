@@ -7,6 +7,8 @@
   --main-modal-color: rgba(247, 222, 30, 0.85);
   --second-modal-color: rgba(34, 34, 34, 0.85);
   --container-width: 1200px;
+  --posX: 50;
+  --posY: 10;
 }
 /*RESETEO BASICO PARA EL HTML*/
 html {
@@ -128,4 +130,18 @@ ul li {
 }
 .reloj {
   height: 2rem;
+}
+
+.box {
+  background-color: rgb(110, 32, 48);
+  height: 20rem;
+}
+.circle {
+  background-color: darkgoldenrod;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  color: #222;
+  font-size: 2rem;
+  transform: translate(500px, 100px);
 }
