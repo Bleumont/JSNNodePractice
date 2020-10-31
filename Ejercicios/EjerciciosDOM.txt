@@ -3,3 +3,4 @@
 4) Eventos del teclado
 5) Cuenta regresiva
 6) Boton que lleve al top
+7) Dark mode

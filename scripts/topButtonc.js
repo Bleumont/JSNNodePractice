@@ -5,6 +5,9 @@ export default function botonTop(boton) {
   d.addEventListener('click', (e) => {
     if (e.target.matches(boton)) {
       d.documentElement.scrollTop = 0;
+      // window.scrollTo({behavior: 'smooth',
+      // top: 0,
+      // })
     }
   });
   d.addEventListener('scroll', (e) => {

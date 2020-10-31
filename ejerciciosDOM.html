@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-dark>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="EjerciciosDOM.css" />
     <title>Document</title>
   </head>
-  <body>
+  <body data-dark>
     <header class="header">
-      <h1 id="title">Ejercicios del DOM</h1>
+      <h1 id="title" data-dark>Ejercicios del DOM</h1>
     </header>
     <aside class="panel">
       <nav class="menu">
@@ -20,9 +20,10 @@
       </nav>
     </aside>
     <button id="panel-btn">&#9776;</button>
-    <button id="top-btn" class="hidden">î</button>
+    <button id="top-btn" class="hidden">⬆</button>
+    <button id="light-btn">🌙</button>
     <main>
-      <section id="seccion1" class="section">
+      <section id="seccion1" class="section" data-dark="">
         <h2>Reloj digital y alarma sonora</h2>
         <div id="reloj"></div>
         <div class="buttons">
