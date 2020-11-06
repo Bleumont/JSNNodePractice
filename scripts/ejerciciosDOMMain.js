@@ -7,6 +7,8 @@ import darkMode from './dark_mode.js';
 import { darkModeCheck } from './dark_mode_check.js';
 import { responsiveMedia } from './object_responsive.js';
 import isResponsive from './responsive_check.js';
+import userDeviceInfo from './user_agent.js';
+import isOnline from './net_status.js';
 
 const d = document;
 d.addEventListener('DOMContentLoaded', (e) => {
@@ -31,6 +33,8 @@ d.addEventListener('DOMContentLoaded', (e) => {
     'Contenido Desktop'
   );
   isResponsive();
+  userDeviceInfo('nav-agent');
+  isOnline('connected');
 });
 
 d.addEventListener('keydown', (e) => {
