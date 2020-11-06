@@ -47,7 +47,7 @@ export default function userDeviceInfo(id) {
   if (isBrowser.chrome()) {
     $id.innerHTML += `<p>Este contenido es exclusivo de ${isBrowser.chrome()}</p>`;
   }
-  if (isMobile.android()) {
-    window.location.href = 'https://www.google.com';
-  }
+  // if (isMobile.android()) {
+  //   window.location.href = 'https://www.google.com';
+  // }
 }

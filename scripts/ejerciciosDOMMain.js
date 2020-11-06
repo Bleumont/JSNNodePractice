@@ -9,6 +9,7 @@ import { responsiveMedia } from './object_responsive.js';
 import isResponsive from './responsive_check.js';
 import userDeviceInfo from './user_agent.js';
 import isOnline from './net_status.js';
+import playVideoFromCamera from './webcam.js';
 
 const d = document;
 d.addEventListener('DOMContentLoaded', (e) => {
@@ -34,9 +35,11 @@ d.addEventListener('DOMContentLoaded', (e) => {
   );
   isResponsive();
   userDeviceInfo('nav-agent');
-  isOnline('connected');
+  playVideoFromCamera();
 });
 
 d.addEventListener('keydown', (e) => {
   shorcuts(e);
 });
+
+isOnline();

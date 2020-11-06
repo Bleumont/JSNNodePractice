@@ -1,14 +1,26 @@
 const d = document,
-  onLine = navigator.onLine;
+  w = window,
+  n = navigator;
 
-export default function isOnline(element) {
-  d.addEventListener('change', () => {
-    if (onLine) {
-      d.getElementById(element).classList.toggle('active');
-      element.innerHTML = `<p>On Line</p>`;
+export default function isOnline() {
+  const status = () => {
+    const $div = d.createElement('div');
+    if (n.onLine) {
+      $div.textContent = 'Conexion Reestablecida';
+      $div.classList.add('online');
+      $div.classList.remove('offline');
     } else {
-      d.getElementById(element).classList.remove('active');
-      element.innerHTML = `<p>Sin Conexion</p>`;
+      $div.textContent = 'Conexion Perdida';
+      $div.classList.add('offline');
+      $div.classList.remove('online');
     }
-  });
+
+    d.body.insertAdjacentElement('afterbegin', $div);
+    setTimeout(() => {
+      d.body.removeChild($div);
+    }, 2000);
+  };
+
+  w.addEventListener('offline', (e) => status());
+  w.addEventListener('online', (e) => status());
 }
