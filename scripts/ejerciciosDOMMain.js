@@ -10,6 +10,9 @@ import isResponsive from './responsive_check.js';
 import userDeviceInfo from './user_agent.js';
 import isOnline from './net_status.js';
 import playVideoFromCamera from './webcam.js';
+import getGeolocation from './geolocalizacion.js';
+import filtroDeBusqueda from './search_filter.js';
+import sorteoRandom from './sorteo.js';
 
 const d = document;
 d.addEventListener('DOMContentLoaded', (e) => {
@@ -36,10 +39,13 @@ d.addEventListener('DOMContentLoaded', (e) => {
   isResponsive();
   userDeviceInfo('nav-agent');
   playVideoFromCamera();
+  getGeolocation('geolocation');
+  sorteoRandom('#btn-sorteo', 'contenedor-participantes');
 });
 
 d.addEventListener('keydown', (e) => {
   shorcuts(e);
+  filtroDeBusqueda('mySearch', 'search-area');
 });
 
 isOnline();
