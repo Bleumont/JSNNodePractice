@@ -14,3 +14,15 @@ export default function sorteoRandom(boton, contenedor) {
 function random(max, min) {
   return Math.floor(Math.random() * (max - min) + min);
 }
+
+// Comentarios de youtube
+// const getWinnerComment = () => {
+//   const $players = document.querySelectorAll('ytd-comment-thread-renderer'),
+//     random = Math.floor(Math.random() * $players.length),
+//     winner = $players[random],
+//     winnerText = winner.querySelector('.style-scope #content-text').innerText,
+//     winnerName = winner.querySelector('#author-text span').innerText;
+
+//   return `El ganador es : ${winnerName}!!
+//   COMENTARIO: ${winnerText}`;
+// };

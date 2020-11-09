@@ -31,6 +31,7 @@ body {
   position: sticky;
   top: 0;
   padding: 0rem;
+  z-index: 997;
 }
 img {
   max-width: 100%;
@@ -54,13 +55,13 @@ body {
   margin-right: auto;
   width: 100%;
   max-width: var(--container-width);
-  min-height: 100vh;
+  min-height: 70vh;
   text-align: center;
   color: aqua;
 }
 .panel {
   background-color: deepskyblue;
-  /* display: flex; */
+  display: flex;
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -102,7 +103,7 @@ body {
   text-decoration: none;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   transition: all 0.5s ease;
-  padding: 1rem;
+  padding: 0.2rem;
   font-size: 1rem;
   width: inherit;
 }
@@ -149,7 +150,7 @@ ul li {
   position: fixed;
   color: aliceblue;
   text-align: center;
-  right: 5vw;
+  right: 90vw;
   bottom: 1vh;
   border-radius: 100%;
   height: 3rem;
@@ -207,5 +208,74 @@ ul li {
   flex-wrap: wrap;
 }
 #search-area {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.card {
+  background-color: var(--second-color);
+  color: var(--main-color);
+  transition: all 0.3s ease-out;
+}
+.card img {
+  width: 100%;
+  height: auto;
+}
+.card figcaption {
+  padding: 1rem;
+}
+.filter {
+  display: none;
+}
+.slider {
+  position: relative;
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+}
+.slider-slides {
+  position: relative;
+  height: 400px;
+}
+.slider-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease;
+}
+.slider-slide img {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  object-position: 50% 10%;
+}
+.slider-slide.active {
+  visibility: visible;
+  opacity: 1;
+}
+.slider a {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: thin solid black;
+  text-decoration: none;
+  background-color: #fff;
+  color: #000;
+  transition: all 0.3s ease;
+}
+.slider a:hover {
+  color: #4d4d4d;
+}
+.slider-btns {
+  position: absolute;
+  width: 100%;
+  top: 50%;
   display: flex;
+  justify-content: space-between;
+  font-size: 3rem;
+  font-weight: bold;
 }

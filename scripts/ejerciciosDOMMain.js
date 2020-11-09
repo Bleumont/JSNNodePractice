@@ -1,4 +1,4 @@
-import hamburguerMenu from './hamburguerMenu.js';
+import hamburguerMenu, { responsiveMenu } from './hamburguerMenu.js';
 import { alarma, reloj } from './sonido.js';
 import teclas, { shorcuts } from './teclado.js';
 import cuentaRegresiva from './countdown.js';
@@ -13,6 +13,8 @@ import playVideoFromCamera from './webcam.js';
 import getGeolocation from './geolocalizacion.js';
 import filtroDeBusqueda from './search_filter.js';
 import sorteoRandom from './sorteo.js';
+import sliderGallery from './slider.js';
+import scrollAreaIntersect from './scroll_area_intersect.js';
 
 const d = document;
 d.addEventListener('DOMContentLoaded', (e) => {
@@ -41,10 +43,15 @@ d.addEventListener('DOMContentLoaded', (e) => {
   playVideoFromCamera();
   getGeolocation('geolocation');
   sorteoRandom('#btn-sorteo', 'contenedor-participantes');
+  sliderGallery();
+  scrollAreaIntersect();
+  responsiveMenu();
 });
 
 d.addEventListener('keydown', (e) => {
   shorcuts(e);
+});
+d.addEventListener('keyup', (e) => {
   filtroDeBusqueda('mySearch', 'search-area');
 });
 
