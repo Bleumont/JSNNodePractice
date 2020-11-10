@@ -32,6 +32,7 @@ body {
   top: 0;
   padding: 0rem;
   z-index: 997;
+  background-color: darkcyan;
 }
 img {
   max-width: 100%;
@@ -40,7 +41,6 @@ img {
 /****************** ESTILOS **********************/
 #title {
   text-align: center;
-  background-color: deepskyblue;
   margin: auto;
 }
 body {
@@ -150,7 +150,7 @@ ul li {
   position: fixed;
   color: aliceblue;
   text-align: center;
-  right: 90vw;
+  right: 5vw;
   bottom: 1vh;
   border-radius: 100%;
   height: 3rem;
@@ -278,4 +278,117 @@ ul li {
   justify-content: space-between;
   font-size: 3rem;
   font-weight: bold;
+}
+.menu a.active {
+  color: aqua;
+  background-color: darkslategray;
+}
+/* Scroll Spy */
+@media screen and (min-width: 1024px) {
+  body {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 4rem auto;
+    grid-template-areas:
+      'header header'
+      'main panel';
+  }
+  main {
+    grid-area: main;
+  }
+  .header {
+    grid-area: header;
+  }
+  .panel {
+    grid-area: panel;
+    position: sticky;
+    top: 4rem;
+    opacity: 1;
+    visibility: visible;
+    transition: translate(0, 0);
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    justify-content: start;
+    align-self: start;
+  }
+  #panel-btn {
+    display: none;
+  }
+  #top-btn {
+    position: fixed;
+    right: 21vw;
+  }
+  .menu {
+    top: 4rem;
+  }
+  .menu a {
+    justify-content: stretch;
+    padding: 1.5rem;
+  }
+}
+.contacto {
+  --form-ok-color: #4caf50;
+  --form-error-color: #f44336;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.contacto > * {
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+}
+.contacto textarea {
+  resize: none;
+}
+.contacto legend,
+.contact-form-response {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+.contacto input,
+.contacto textarea {
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+.contacto input[type='submit'] {
+  width: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+.contacto *::placeholder {
+  color: '#000';
+}
+.contacto [required]:valid {
+  border: 5px solid car(--form-ok-color);
+}
+.contacto [required]:invalid {
+  border: 5px solid car(--form-error-color);
+}
+.contact-form-error {
+  margin-top: -1rem;
+  font-size: 80%;
+  background-color: var(--form-error-color);
+  color: #fff;
+  transition: all 800ms ease;
+}
+.contact-form-error.is-active {
+  display: block;
+  animation: show-message 1s 1 normal 0s ease-out both;
+}
+.none {
+  display: none;
+}
+@keyframes show-message {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
 }

@@ -24,8 +24,8 @@
         <a href="#seccion10">Filtros de Busqueda</a>
         <a href="#seccion11">Sorteo Digital</a>
         <a href="#seccion12">Galeria Responsive</a>
-        <a href="#seccion13">R</a>
-        <a href="#seccion14">R</a>
+        <a href="#seccion13">Video Inteligente</a>
+        <a href="#seccion14">Formulario de Contacto</a>
       </nav>
     </aside>
     <button id="panel-btn">&#9776;</button>
@@ -181,10 +181,25 @@
         </div>
       </section>
       <section id="seccion13" class="section">
-        <h2>Sección 13</h2>
-      </section>
+        <h2>Video Inteligente</h2>
+        <video id='videoInt' src="/assets/video.mp4" muted controls width="720" height="480"></video>
+        </section>
       <section id="seccion14" class="section">
-        <h2>Sección 14</h2>
+        <h2>Formulario de Contacto (Validaciones)</h2>
+        <form method="post" class="contacto"> 
+          <legend>Envianos tus Comentarios</legend>
+          <input type="text" name="nombre" placeholder="Escribi tu nombre..." required pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title="Ingrese un nombre valido">
+          <input type="email" name="mail" placeholder="user@mail.com" required title="Email incorrecto" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" >
+          <input type="text" name="asunto" placeholder="Asunto:"required title="Escribe un asunto">
+          <textarea name="mensaje"" cols="50" rows="5" placeholder="Escribi tus comentarios..." required data-pattern='^.{1,255}$' title="Tu comentario no debe exceder los 255 caracteres" ></textarea>
+          <input type="submit" value="Enviar">
+          <div class="contact-form-loader none">
+            <img src="./assets/loader.svg" alt="" srcset="">
+          </div>
+          <div class="contact-form-response none">
+            <p>Los datos han sido enviados</p>
+          </div>
+        </form>
       </section>
     </main>
     <script src="/scripts/ejerciciosDOMMain.js" type="module"></script>
