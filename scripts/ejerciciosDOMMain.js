@@ -17,6 +17,7 @@ import sliderGallery from './slider.js';
 import scrollAreaIntersect from './scroll_area_intersect.js';
 import videoInteligente from './video_inteligente.js';
 import contactFormValidation from './validacion_form.js';
+import textoAVoz from './speech_synthesis.js';
 
 const d = document;
 d.addEventListener('DOMContentLoaded', (e) => {
@@ -57,5 +58,6 @@ d.addEventListener('keydown', (e) => {
 d.addEventListener('keyup', (e) => {
   filtroDeBusqueda('mySearch', 'search-area');
 });
+textoAVoz();
 
 isOnline();
