@@ -50,6 +50,7 @@ d.addEventListener('DOMContentLoaded', (e) => {
   scrollAreaIntersect();
   videoInteligente();
   contactFormValidation();
+  textoAVoz();
 });
 
 d.addEventListener('keydown', (e) => {
@@ -58,6 +59,5 @@ d.addEventListener('keydown', (e) => {
 d.addEventListener('keyup', (e) => {
   filtroDeBusqueda('mySearch', 'search-area');
 });
-textoAVoz();
 
 isOnline();
