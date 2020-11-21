@@ -73,3 +73,45 @@
   }
   getData();
 })();
+
+(() => {
+  const $axios = document.getElementById('axios'),
+    $fragment = document.createDocumentFragment();
+    
+    let json = await res.data;
+  axios
+    .get('https://jsonplaceholder.typicode.com/users')
+    .then((res) => {
+      json.forEach((ele) => {
+        const $li = document.createElement('li');
+        $li.innerHTML = `${ele.name} -- ${ele.email} -- ${ele.phone}`;
+        $fragment.appendChild($li);
+      });
+      $axios.appendChild($fragment);
+    })
+    .catch((err) => console.log('Estamos en catch', err))
+    .finally(() => console.log('Finally'));
+})();
+
+(() => {
+  const $axiosAsync = document.getElementById('axios-async'),
+    $fragment = document.createDocumentFragment();
+
+  async function getData() {
+    try {
+      let res = await axios.get('https://jsonplaceholder.typicode.com/users'),
+      json = await res.data;
+      
+      json.forEach((ele) => {
+        const $li = document.createElement('li');
+        $li.innerHTML = `${ele.name} -- ${ele.email} -- ${ele.phone}`;
+        $fragment.appendChild($li);
+      });
+      $axiosAsync.appendChild($fragment);
+    } catch (err) {
+      let messaje = err.statusText || 'Ocurrio un error';
+      $axiosAsync.innerHTML = `Error ${err.status}: ${messaje}`;
+    }
+  }
+  getData();
+})();
