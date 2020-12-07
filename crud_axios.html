@@ -21,7 +21,7 @@
           />
           <br />
           <input type="submit" value="Enviar" />
-          <input type="hidden" name="action" />
+          <input type="hidden" name="id" />
         </form>
       </article>
       <article>
@@ -43,18 +43,11 @@
         <td class="name"></td>
         <td class="constellation"></td>
         <td>
-          <button class="edit"></button>
-          <button class="delete"></button>
+          <button class="edit">Editr</button>
+          <button class="delete">Eliminar</button>
         </td>
       </tr>
     </template>
-    <script>
-      const d = document,
-        $table = d.querySelector('.crud-table'),
-        $form = d.querySelector('.crud-form'),
-        $title = d.querySelector('.crud-title'),
-        $template = d.getElementById('crud-template').content,
-        $fragment = d.createDocumentFragment();
-    </script>
+    <script src="./scripts/ajax/crud_axios.js"></script>
   </body>
 </html>
